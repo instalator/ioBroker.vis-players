@@ -10,12 +10,12 @@
         type="text/ejs"
         class="vis-tpl"
         data-vis-prev='<img style="width:112px; height:52px" src="widgets/players/img/winamp.png"></img>'
-        data-vis-attrs="oid_play/id;oid_next/id;oid_prev/id;oid_stop/id;oid_pause/id;oid_seek/id;oid_vol/id;oid_mute/id;oid_shuffle/id;oid_repeat/id;oid_artist/id;oid_title/id;oid_album/id;oid_bitrate/id;"
+        data-vis-attrs="oid_play/id/onPlayChanged;oid_next/id;oid_prev/id;oid_stop/id;oid_pause/id;oid_seek/id;oid_vol/id;oid_mute/id;oid_shuffle/id;oid_repeat/id;oid_artist/id;oid_title/id;oid_album/id;oid_bitrate/id;"
         data-vis-set="players"
         data-vis-type="val"
         data-vis-beta="true"
         data-vis-name="Winamp Player">
-    <div class="vis-widget <%== this.data.attr('class') %>" style="width:354px; height:161px" id="<%= this.data.attr('wid') %>" >
+    <div class="vis-widget <%== this.data.attr('class') %>" style="width:354px; height:161px" id="<%= this.data.attr('wid') %>" data-vis-resizable='{"disabled":true, "handles":"e"}'>
     <map id="consoleMap" name="consoleMap">
         <area class="winamp-btn" id="repeat" shape="circle" coords="323,47,9" href="#" alt="Toggle Repeat">
         <area class="winamp-btn" id="shuffle" shape="circle" coords="324,71,9" href="#" alt="Toggle Shuffle">
@@ -29,40 +29,40 @@
         <area class="winamp-btn" id="play" shape="circle" coords="48,125,11" href="#" alt="Play">
     </map>
     <div class="winamp">
-	<div class="winamp-head">
-		<img class="winamp-head_r" src="widgets/players/img/winamp/waBoxTitleRight.gif">
-		<img class="winamp-head_l" src="widgets/players/img/winamp/waBoxTitleLeft.gif">
-		<div class="winamp-head_c">
-			<img class="winamp-head_c-bg" src="widgets/players/img/winamp/waBoxBg.gif">
-			<img class="winamp-head_c-img" src="widgets/players/img/winamp/waConsoleTitle.gif">
-		</div>
-	</div>
-	<div class="winamp-body">
-        <img src="widgets/players/img/winamp/console.gif" usemap="#consoleMap" width="354" height="144" border="0">
-        <img class="winamp-repeat" src="widgets/players/img/winamp/waLightOn.gif" border="0" >
-        <img class="winamp-shuffle" src="widgets/players/img/winamp/waLightOn.gif" border="0" >
-        <div class="winamp-vol">
-            <div id="winamp-vol_slider"></div>
-            <span class="volume"></span>
+        <div class="winamp-head">
+            <img class="winamp-head_r" src="widgets/players/img/winamp/waBoxTitleRight.gif">
+            <img class="winamp-head_l" src="widgets/players/img/winamp/waBoxTitleLeft.gif">
+            <div class="winamp-head_c">
+                <img class="winamp-head_c-bg" src="widgets/players/img/winamp/waBoxBg.gif">
+                <img class="winamp-head_c-img" src="widgets/players/img/winamp/waConsoleTitle.gif">
+            </div>
         </div>
-        <div class="winamp-seek">
-            <div id="winamp-seek_slider"></div>
-            <span class="seek"></span>
+        <div class="winamp-body">
+            <img src="widgets/players/img/winamp/console.gif" usemap="#consoleMap" width="354" height="144" border="0">
+            <img class="winamp-repeat" src="widgets/players/img/winamp/waLightOn.gif" border="0" >
+            <img class="winamp-shuffle" src="widgets/players/img/winamp/waLightOn.gif" border="0" >
+            <div class="winamp-vol">
+                <div class="winamp-vol-slider"></div>
+                <span class="volume"></span>
+            </div>
+            <div class="winamp-seek">
+                <div class="winamp-seek-slider"></div>
+                <span class="seek"></span>
+            </div>
+            <div class="winamp-artist">Artist: </div>
+            <div class="winamp-title">Title: </div>
+            <div class="winamp-album">Album: </div>
+            <div class="winamp-bitrate">kbps: </div>
         </div>
-        <div class="winamp-artist">Artist: </div>
-        <div class="winamp-title">Title: </div>
-        <div class="winamp-album">Album: </div>
-        <div class="winamp-bitrate">kbps: </div>
-	</div>
-</div>
+    </div>
        <% vis.binds.players.createWidgetWinampPlayer(this.data.wid, this.view, this.data, this.style);%>
 	</div>
 </script>
 <script id="tplWinampPlaylist"
         type="text/ejs"
         class="vis-tpl"
-        data-vis-prev='<img style="width:112px; height:52px" src="widgets/players/img/winamp_plst.png"></img>'
-        data-vis-attrs="oid_playlist/id;oid_playid/id;oid_id/id;"
+        data-vis-prev='<img style="width:112px; height:52px" src="widgets/players/img/winamp.png"></img>'
+        data-vis-attrs="oid_playlist/id;"
         data-vis-set="players"
         data-vis-type="val"
         data-vis-beta="true"
@@ -71,15 +71,15 @@
             <div class="win-plst-head">
                 <img class="win-plst-head_r" src="widgets/players/img/winamp/waBoxTitleRight.gif">
                 <img class="win-plst-head_l" src="widgets/players/img/winamp/waBoxTitleLeft.gif">
-                <img class="winamp-plst-close" src="widgets/players/img/winamp/closeBox.gif">
+                <img src="widgets/players/img/winamp/closeBox.gif" style="position: absolute; top: 0px; right: 0px; cursor: pointer; z-index: 1;">
                 <div class="win-plst-head_c">
                     <img class="win-plst-head_c-bg" src="widgets/players/img/winamp/waBoxBg.gif">
                     <img class="win-plst-head_c-img" src="widgets/players/img/winamp/waPlaylistTitle.gif">
                 </div>
             </div>
             <div class="win-plst-body">
-                <div id="winamp-playlist">
-                    <ul id="winamp-playlist-container">
+                <div class="winamp-playlist">
+                    <ul class="winamp-playlist-container">
                     </ul>
                 </div>
             </div>
@@ -89,8 +89,8 @@
                 <div class="win-plst-footer-b">
                     <img class="win-plst-footer-bg" src="widgets/players/img/winamp/waFooterBg.gif">
                     <div class="MLfooter">
-                        <a class="Mlfooter" href="#">
-                            <!--<img border="0" src="widgets/players/img/winamp/plclear.gif">-->
+                        <a class="Mlfooter" href="javascript:document.pl.waControl.clearPlaylist();document.pl.refresh();">
+                            <img border="0" src="widgets/players/img/winamp/plclear.gif">
                         </a>
                     </div>
                 </div>
